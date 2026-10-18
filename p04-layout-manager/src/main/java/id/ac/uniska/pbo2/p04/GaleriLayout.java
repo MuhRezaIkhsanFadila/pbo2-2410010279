@@ -1,16 +1,19 @@
+package id.ac.uniska.pbo2.p04;
+
+import com.formdev.flatlaf.FlatLightLaf;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package id.ac.uniska.pbo2.p04;
-
-import com.formdev.flatlaf.FlatLightLaf;
 
 /**
  *
  * @author User
  */
 public class GaleriLayout extends javax.swing.JFrame {
+    
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GaleriLayout.class.getName());
 
     /**
      * Creates new form GaleriLayout
@@ -36,9 +39,9 @@ public class GaleriLayout extends javax.swing.JFrame {
         layoutTab = new javax.swing.JTabbedPane();
         borderPanel = new javax.swing.JPanel();
         northButton = new javax.swing.JButton();
-        southButton = new javax.swing.JButton();
         westButton = new javax.swing.JButton();
         eastButton = new javax.swing.JButton();
+        southButton = new javax.swing.JButton();
         centerButton = new javax.swing.JButton();
         flowPanel = new javax.swing.JPanel();
         baruButton = new javax.swing.JButton();
@@ -65,6 +68,7 @@ public class GaleriLayout extends javax.swing.JFrame {
         laporanButton = new javax.swing.JButton();
         gabunganPanel = new javax.swing.JPanel();
         catatanJudulLabel = new javax.swing.JLabel();
+        catatanScrollPane = new javax.swing.JScrollPane();
         catatanTextArea = new javax.swing.JTextArea();
         hariPanel = new javax.swing.JPanel();
         seninButton = new javax.swing.JButton();
@@ -76,7 +80,6 @@ public class GaleriLayout extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Galeri Layout Manager");
-        getContentPane().setLayout(new java.awt.BorderLayout());
 
         borderPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(12, 12, 12, 12));
         borderPanel.setLayout(new java.awt.BorderLayout(8, 8));
@@ -84,14 +87,15 @@ public class GaleriLayout extends javax.swing.JFrame {
         northButton.setText("NORTH");
         borderPanel.add(northButton, java.awt.BorderLayout.NORTH);
 
-        southButton.setText("SOUTH");
-        borderPanel.add(southButton, java.awt.BorderLayout.SOUTH);
-
         westButton.setText("WEST");
         borderPanel.add(westButton, java.awt.BorderLayout.WEST);
 
         eastButton.setText("EAST");
         borderPanel.add(eastButton, java.awt.BorderLayout.EAST);
+
+        southButton.setText("SOUTH");
+        southButton.setToolTipText("");
+        borderPanel.add(southButton, java.awt.BorderLayout.SOUTH);
 
         centerButton.setText("CENTER");
         borderPanel.add(centerButton, java.awt.BorderLayout.CENTER);
@@ -181,7 +185,9 @@ public class GaleriLayout extends javax.swing.JFrame {
 
         catatanTextArea.setColumns(20);
         catatanTextArea.setRows(5);
-        gabunganPanel.add(catatanTextArea, java.awt.BorderLayout.CENTER);
+        catatanScrollPane.setViewportView(catatanTextArea);
+
+        gabunganPanel.add(catatanScrollPane, java.awt.BorderLayout.CENTER);
 
         hariPanel.setLayout(new javax.swing.BoxLayout(hariPanel, javax.swing.BoxLayout.Y_AXIS));
 
@@ -242,11 +248,12 @@ public class GaleriLayout extends javax.swing.JFrame {
     private javax.swing.JPanel flowPanel;
     private javax.swing.JPanel gabunganPanel;
     private javax.swing.JPanel gridPanel;
-    private javax.swing.JPanel hariPanel;
     private javax.swing.JButton hapusButton;
+    private javax.swing.JPanel hariPanel;
+    private javax.swing.JScrollPane catatanScrollPane;
     private javax.swing.JButton keluarButton;
-    private javax.swing.JTabbedPane layoutTab;
     private javax.swing.JButton laporanButton;
+    private javax.swing.JTabbedPane layoutTab;
     private javax.swing.JButton northButton;
     private javax.swing.JButton rabuButton;
     private javax.swing.JButton selasaButton;

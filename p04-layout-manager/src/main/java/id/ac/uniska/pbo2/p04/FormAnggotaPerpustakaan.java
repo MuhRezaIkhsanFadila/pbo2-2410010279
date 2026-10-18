@@ -89,6 +89,8 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
         isiPanel.setLayout(new java.awt.BorderLayout());
 
         formPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(8, 16, 8, 16));
+        formPanel.setLayout(new java.awt.GridBagLayout());
+
         java.awt.GridBagConstraints gridBagConstraints;
 
         dataAnggotaLabel.setText("Data Anggota");

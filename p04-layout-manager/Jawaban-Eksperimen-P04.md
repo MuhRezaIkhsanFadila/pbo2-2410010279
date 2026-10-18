@@ -2,35 +2,39 @@
 
 ## Praktikum 2: Galeri Layout Manager
 
-### 1. flowPanel: Alignment diubah menjadi Center
-Baris tombol yang tidak penuh ikut merata ke tengah panel; saat jendela dikecilkan, tombol pindah baris dan setiap baris tetap rata tengah.
-Baris `initComponents()` yang berubah:
+### 1. flowPanel: Alignment diubah jadi Center
+Tombol-tombol jadi rata tengah di setiap baris. Saat jendela dikecilkan, tombol pindah baris tapi tetap di tengah.
+Baris yang berubah di `initComponents()`:
 ```java
 flowPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 8, 8));
 ```
-(Nilai `LEFT` menjadi `CENTER`.)
+(sebelumnya `LEFT`, sekarang `CENTER`)
 
 ### 2. gridPanel: Rows 0 dan Columns 2
-Terbentuk 5 baris. Dengan `GridLayout(0, 2, 8, 8)` jumlah kolom ditetapkan 2 sehingga baris dihitung otomatis dari jumlah komponen: 9 tombol / 2 kolom = 5 baris (baris terakhir berisi satu tombol).
-Baris kode menjadi:
+Terbentuk 5 baris. Kolom dipatok 2, jadi 9 tombol dibagi 2 = 4 baris penuh + 1 tombol sisa di baris terakhir. Jumlah baris dihitung otomatis.
 ```java
 gridPanel.setLayout(new java.awt.GridLayout(0, 2, 8, 8));
 ```
 
 ### 3. boxPanel: maximumSize lebar 32767 + Vertical Strut
-Tombol melebar memenuhi lebar panel karena lebar maksimum tombol (32767) melebihi lebar panel, dan BoxLayout mengikuti ukuran maksimum komponen. `Vertical Strut` dari Swing Fillers menyisipkan jarak vertikal tetap di antara tombol sehingga jarak antar tombol sama.
+Tombol jadi melebar penuh selebar panel, karena lebar maksimumnya (32767) melebihi lebar panel. Vertical Strut menambah jarak antar tombol supaya tidak rapat.
 
 ## Praktikum 4: Form Biodata
 
-### 1. Weight X `namaField` diubah menjadi 0.0
-`namaField` tidak ikut melebar saat jendela dilebarkan; isian tetap pada lebar asli (20 kolom) dan sisa ruang tidak diserap kolom isian.
+### 1. Weight X namaField diubah jadi 0.0
+`namaField` tidak ikut melebar lagi, tetap di lebar aslinya. Saat jendela dilebarkan, sisa ruang di kanan jadi kosong.
 
-### 2. Direction `formPanel` di dalam `isiPanel` dari North menjadi Center
-`formPanel` mengambang di tengah `isiPanel` saat jendela ditinggikan, bukan menempel di atas; baris form tidak lagi terkunci di posisi atas.
+### 2. Direction formPanel di isiPanel dari North ke Center
+Form pindah ke tengah. Saat jendela ditinggikan, form "mengambang" di tengah, tidak menempel di atas lagi.
 
-### 3. Baris `setMinimumSize(getSize())` dihapus
-Jendela dapat dikecilkan melebihi ukuran awal sehingga isian (kolom isian di kanan) terpotong lebih dulu, disusul tombol Batal dan Simpan yang ikut terpotong.
+### 3. Baris setMinimumSize(getSize()) dihapus
+Jendela bisa dikecilkan sampai komponen terpotong. Yang rusak duluan bagian isian di kanan, lalu tombol Batal dan Simpan.
 
 ## Saran dari Teman (Tahap 4)
 
-> (Diisi setelah saling menilai di kelas)
+Nama teman: Randy Firmansyah (2410010268)
+
+Pemeriksaan 8 butir daftar periksa: terpenuhi semua.
+
+Saran:
+1. Placeholder pada Email dan Nomor HP sudah bagus. Sebaiknya field NPM juga diberi placeholder (contoh: 2410010001) supaya pengguna langsung tahu format penulisannya.
