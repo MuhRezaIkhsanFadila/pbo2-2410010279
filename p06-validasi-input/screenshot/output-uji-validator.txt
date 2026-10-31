@@ -1,0 +1,14 @@
+SESUAI NPM kosong: NPM wajib diisi
+SESUAI NPM 5 digit: NPM harus berisi 10 digit angka
+SESUAI NPM berisi huruf: NPM harus berisi 10 digit angka
+SESUAI NPM benar: valid
+SESUAI Nama terlalu pendek: Nama minimal 3 huruf
+SESUAI Nama berisi angka: Nama tidak boleh berisi angka
+SESUAI Nama benar: valid
+SESUAI Email tanpa domain: Format email belum benar, contoh: nama@contoh.com
+SESUAI Email benar: valid
+SESUAI Nomor HP terlalu pendek: Nomor HP diawali 08 dan berisi 10 sampai 13 digit
+SESUAI Nomor HP diawali 62: Nomor HP diawali 08 dan berisi 10 sampai 13 digit
+SESUAI Nomor HP 12 digit: valid
+
+Semua aturan bekerja sesuai harapan
