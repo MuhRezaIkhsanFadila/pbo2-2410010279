@@ -47,19 +47,6 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
         }
         statusLabel.setForeground(warnaKesalahan());
 
-        // Mnemonic: Alt + huruf memindahkan fokus ke isian pasangannya
-        npmLabel.setDisplayedMnemonic('P');
-        namaLabel.setDisplayedMnemonic('N');
-        prodiLabel.setDisplayedMnemonic('R');
-        jenisAnggotaLabel.setDisplayedMnemonic('J');
-        emailLabel.setDisplayedMnemonic('E');
-        hpLabel.setDisplayedMnemonic('H');
-        alamatLabel.setDisplayedMnemonic('L');
-        mahasiswaRadio.setMnemonic('M');
-        dosenRadio.setMnemonic('D');
-        umumRadio.setMnemonic('U');
-        setujuCheck.setMnemonic('T');
-        batalButton.setMnemonic('B');
 
         getRootPane().setDefaultButton(daftarButton);
         pack();
@@ -149,6 +136,7 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 6, 0);
         formPanel.add(dataAnggotaLabel, gridBagConstraints);
 
+        npmLabel.setDisplayedMnemonic('P');
         npmLabel.setLabelFor(npmField);
         npmLabel.setText("NPM");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -199,6 +187,7 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 2, 2, 0);
         formPanel.add(npmPesanLabel, gridBagConstraints);
 
+        namaLabel.setDisplayedMnemonic('N');
         namaLabel.setLabelFor(namaField);
         namaLabel.setText("Nama lengkap");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -231,6 +220,7 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 2, 2, 0);
         formPanel.add(namaPesanLabel, gridBagConstraints);
 
+        prodiLabel.setDisplayedMnemonic('R');
         prodiLabel.setLabelFor(prodiCombo);
         prodiLabel.setText("Program studi");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -263,6 +253,7 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 2, 2, 0);
         formPanel.add(prodiPesanLabel, gridBagConstraints);
 
+        jenisAnggotaLabel.setDisplayedMnemonic('J');
         jenisAnggotaLabel.setText("Jenis anggota");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -274,15 +265,18 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
         jenisAnggotaPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 12, 0));
 
         jenisAnggotaGroup.add(mahasiswaRadio);
+        mahasiswaRadio.setMnemonic('M');
         mahasiswaRadio.setSelected(true);
         mahasiswaRadio.setText("Mahasiswa");
         jenisAnggotaPanel.add(mahasiswaRadio);
 
         jenisAnggotaGroup.add(dosenRadio);
+        dosenRadio.setMnemonic('D');
         dosenRadio.setText("Dosen");
         jenisAnggotaPanel.add(dosenRadio);
 
         jenisAnggotaGroup.add(umumRadio);
+        umumRadio.setMnemonic('U');
         umumRadio.setText("Umum");
         jenisAnggotaPanel.add(umumRadio);
 
@@ -303,6 +297,7 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(16, 0, 6, 0);
         formPanel.add(kontakLabel, gridBagConstraints);
 
+        emailLabel.setDisplayedMnemonic('E');
         emailLabel.setLabelFor(emailField);
         emailLabel.setText("Email");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -335,6 +330,7 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 2, 2, 0);
         formPanel.add(emailPesanLabel, gridBagConstraints);
 
+        hpLabel.setDisplayedMnemonic('H');
         hpLabel.setLabelFor(hpField);
         hpLabel.setText("Nomor HP");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -373,6 +369,7 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 2, 2, 0);
         formPanel.add(hpPesanLabel, gridBagConstraints);
 
+        alamatLabel.setDisplayedMnemonic('L');
         alamatLabel.setLabelFor(alamatTextArea);
         alamatLabel.setText("Alamat");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -393,6 +390,7 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(4, 0, 0, 0);
         formPanel.add(alamatTextArea, gridBagConstraints);
 
+        setujuCheck.setMnemonic('T');
         setujuCheck.setText("Setuju dengan tata tertib perpustakaan");
         setujuCheck.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -418,6 +416,7 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
 
         tombolPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT, 8, 0));
 
+        batalButton.setMnemonic('B');
         batalButton.setText("Batal");
         batalButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

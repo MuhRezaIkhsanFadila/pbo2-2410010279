@@ -111,10 +111,13 @@ Aksesibilitas dan bantuan:
 | toolTipText | npmField: "Hanya angka, tepat 10 digit" |
 | urutan komponen | mengikuti urutan baca pada Navigator |
 
-Catatan: properti `labelFor` dan `toolTipText` tersimpan di file `.form`. Nilai
-`displayedMnemonic` dan `mnemonic` ditulis di konstruktor setelah `initComponents()`
-karena penulisannya melalui file `.form` hanya dihasilkan otomatis oleh editor desain
-NetBeans; hasil di layar tetap sama (Alt + huruf memindahkan fokus).
+Catatan: keempat jenis properti aksesibilitas (`labelFor`, `displayedMnemonic`, `mnemonic`,
+`toolTipText`) semuanya tersimpan di dalam file `.form` sebagai properti komponen, sehingga
+nilainya ikut tampil pada jendela Properties saat form dibuka di tab Design NetBeans, dan
+baris kodenya berada di dalam blok generated `initComponents()`. Alhasil form tetap bisa
+dipakai dengan keyboard (Alt + P/N/R/J/E/H/L memindahkan fokus, Alt + M/D/U memilih jenis
+anggota, Alt + T mencentang persetujuan, Alt + B menekan Batal) tanpa kode tambahan di
+konstruktor.
 
 ## Praktikum 4 — Validasi melalui Event Handler
 

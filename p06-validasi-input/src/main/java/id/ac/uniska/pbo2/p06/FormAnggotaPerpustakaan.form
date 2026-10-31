@@ -98,6 +98,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="npmLabel">
               <Properties>
+                <Property name="displayedMnemonic" type="int" value="80"/>
                 <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
                   <ComponentRef name="npmField"/>
                 </Property>
@@ -147,6 +148,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="namaLabel">
               <Properties>
+                <Property name="displayedMnemonic" type="int" value="78"/>
                 <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
                   <ComponentRef name="namaField"/>
                 </Property>
@@ -183,6 +185,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="prodiLabel">
               <Properties>
+                <Property name="displayedMnemonic" type="int" value="82"/>
                 <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
                   <ComponentRef name="prodiCombo"/>
                 </Property>
@@ -229,6 +232,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jenisAnggotaLabel">
               <Properties>
+                <Property name="displayedMnemonic" type="int" value="74"/>
                 <Property name="text" type="java.lang.String" value="Jenis anggota"/>
               </Properties>
               <Constraints>
@@ -255,6 +259,7 @@
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="jenisAnggotaGroup"/>
                     </Property>
+                    <Property name="mnemonic" type="int" value="77"/>
                     <Property name="selected" type="boolean" value="true"/>
                     <Property name="text" type="java.lang.String" value="Mahasiswa"/>
                   </Properties>
@@ -264,6 +269,7 @@
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="jenisAnggotaGroup"/>
                     </Property>
+                    <Property name="mnemonic" type="int" value="68"/>
                     <Property name="text" type="java.lang.String" value="Dosen"/>
                   </Properties>
                 </Component>
@@ -272,6 +278,7 @@
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="jenisAnggotaGroup"/>
                     </Property>
+                    <Property name="mnemonic" type="int" value="85"/>
                     <Property name="text" type="java.lang.String" value="Umum"/>
                   </Properties>
                 </Component>
@@ -289,6 +296,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="emailLabel">
               <Properties>
+                <Property name="displayedMnemonic" type="int" value="69"/>
                 <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
                   <ComponentRef name="emailField"/>
                 </Property>
@@ -325,6 +333,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="hpLabel">
               <Properties>
+                <Property name="displayedMnemonic" type="int" value="72"/>
                 <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
                   <ComponentRef name="hpField"/>
                 </Property>
@@ -363,6 +372,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="alamatLabel">
               <Properties>
+                <Property name="displayedMnemonic" type="int" value="76"/>
                 <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
                   <ComponentRef name="alamatTextArea"/>
                 </Property>
@@ -387,6 +397,7 @@
             </Component>
             <Component class="javax.swing.JCheckBox" name="setujuCheck">
               <Properties>
+                <Property name="mnemonic" type="int" value="84"/>
                 <Property name="text" type="java.lang.String" value="Setuju dengan tata tertib perpustakaan"/>
               </Properties>
               <Events>
@@ -443,6 +454,7 @@
           <SubComponents>
             <Component class="javax.swing.JButton" name="batalButton">
               <Properties>
+                <Property name="mnemonic" type="int" value="66"/>
                 <Property name="text" type="java.lang.String" value="Batal"/>
               </Properties>
               <Events>
