@@ -232,6 +232,7 @@ public class FormAnggota extends javax.swing.JFrame {
         formPanel.add(prodiPesanLabel, gridBagConstraints);
 
         jenisAnggotaLabel.setDisplayedMnemonic('J');
+        jenisAnggotaLabel.setLabelFor(mahasiswaRadio);
         jenisAnggotaLabel.setText("Jenis anggota");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;

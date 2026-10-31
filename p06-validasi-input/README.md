@@ -16,7 +16,7 @@ p06-validasi-input/
 ├── README.md
 ├── Refleksi-P06-2410010279.md
 ├── Deklarasi-Penggunaan-AI.md
-├── Lembar-Peer-Review-Heuristik.md
+├── Lembar-Peer-Review-Heuristik.pdf
 ├── Tabel-Temuan-Peer-Review.md
 ├── screenshot/
 └── src/main/java/id/ac/uniska/pbo2/p06/
@@ -31,7 +31,7 @@ p06-validasi-input/
 ## Cara Menjalankan
 
 Di NetBeans: buka proyek `p06-validasi-input`, klik kanan `UjiValidator.java` atau
-`FormAnggota.java` lalu pilih **Run File**. Dari terminal:
+`FormAnggota.java`, lalu **Run File**. Dari terminal:
 
 ```
 javac -d build/classes -cp <flatlaf.jar> src/main/java/id/ac/uniska/pbo2/p06/*.java
@@ -40,15 +40,15 @@ java -cp "build/classes;<flatlaf.jar>" id.ac.uniska.pbo2.p06.FormAnggota
 java -cp "build/classes;<flatlaf.jar>" id.ac.uniska.pbo2.p06.FormAnggotaPerpustakaan
 ```
 
-Dependency yang dipakai: `com.formdev:flatlaf:3.5.4` (sama seperti Pertemuan 3).
+Dependency: `com.formdev:flatlaf:3.5.4`.
 
-## Praktikum 2 — Kelas Validator dan Pengujiannya
+## Praktikum 2 — Validator
 
-Aturan validasi dikumpulkan di `Validator` (kelas utilitas, konstruktor privat, semua
-method `static`), sehingga tidak bergantung pada GUI. Setiap method mengembalikan pesan
-kesalahan, atau `null` bila nilai sudah benar.
+Aturan validasi dikumpulkan di `Validator`: kelas utilitas, konstruktor privat, semua
+method `static`, dan tidak bergantung pada GUI. Tiap method mengembalikan pesan kesalahan,
+atau `null` bila nilai valid.
 
-Keluaran `UjiValidator` (seluruh baris bertanda SESUAI):
+Keluaran `UjiValidator` (semua baris SESUAI):
 
 ```
 SESUAI NPM kosong: NPM wajib diisi
@@ -67,11 +67,11 @@ SESUAI Nomor HP 12 digit: valid
 Semua aturan bekerja sesuai harapan
 ```
 
-Baris `Nama berisi angka` adalah aturan baru dari Latihan Mandiri nomor 2.
+Aturan `Nama berisi angka` adalah tambahan dari Latihan Mandiri nomor 2.
 
-## Praktikum 3 — FormAnggota di GUI Builder
+## Praktikum 3 — FormAnggota
 
-Judul jendela: **Pendaftaran Anggota Perpustakaan**. Susunan panel:
+Judul jendela: **Pendaftaran Anggota Perpustakaan**.
 
 | Panel | Layout | Isi |
 |---|---|---|
@@ -80,98 +80,48 @@ Judul jendela: **Pendaftaran Anggota Perpustakaan**. Susunan panel:
 | formPanel | GridBagLayout | isian dan label pesan |
 | bawahPanel | South, BorderLayout | statusLabel di Center, tombolPanel di East |
 
-Isian pada formPanel (Grid Y sesuai modul), setiap isian validasi punya Label pesan di
-baris bawahnya dengan teks satu spasi agar tinggi baris tetap:
+Urutan isian: NPM, Nama lengkap, Program studi, Jenis anggota, Email, Nomor HP, Alamat,
+dan checkbox setuju. Setiap isian yang divalidasi punya label pesan di bawahnya; label
+kosong diisi satu spasi agar tinggi baris tetap.
 
-| Grid Y | Kolom 0 | Kolom 1 |
-|---|---|---|
-| 0 | Data Anggota (Grid Width 2) | |
-| 1 | NPM | npmField |
-| 2 | | npmPesanLabel |
-| 3 | Nama lengkap | namaField |
-| 4 | | namaPesanLabel |
-| 5 | Program studi | prodiCombo (Pilih program studi, Teknik Informatika, Sistem Informasi, Manajemen Informatika) |
-| 6 | | prodiPesanLabel |
-| 7 | Jenis anggota | jenisPanel (mahasiswaRadio, dosenRadio, umumRadio) |
-| 8 | Kontak (Grid Width 2) | |
-| 9 | Email | emailField |
-| 10 | | emailPesanLabel |
-| 11 | Nomor HP | hpField |
-| 12 | | hpPesanLabel |
-| 13 | Alamat (Anchor Northwest) | alamatArea |
-| 14 | | setujuCheck |
-
-Aksesibilitas dan bantuan:
+Aksesibilitas:
 
 | Teknik | Diterapkan pada |
 |---|---|
-| labelFor | npmLabel→npmField, namaLabel→namaField, prodiLabel→prodiCombo, emailLabel→emailField, hpLabel→hpField, alamatLabel→alamatArea |
-| displayedMnemonic | P (NPM), N (Nama), R (Program studi), J (Jenis anggota), E (Email), H (Nomor HP), L (Alamat) |
-| mnemonic | M/D/U pada radio button, T pada setujuCheck, B pada batalButton |
+| labelFor | npmLabel→npmField, namaLabel→namaField, prodiLabel→prodiCombo, jenisAnggotaLabel→mahasiswaRadio, emailLabel→emailField, hpLabel→hpField, alamatLabel→alamatArea |
+| displayedMnemonic | P, N, R, J, E, H, L |
+| mnemonic | M/D/U pada radio, T pada setujuCheck, B pada batalButton |
 | toolTipText | npmField: "Hanya angka, tepat 10 digit" |
-| urutan komponen | mengikuti urutan baca pada Navigator |
 
-Catatan: keempat jenis properti aksesibilitas (`labelFor`, `displayedMnemonic`, `mnemonic`,
-`toolTipText`) semuanya tersimpan di dalam file `.form` sebagai properti komponen, sehingga
-nilainya ikut tampil pada jendela Properties saat form dibuka di tab Design NetBeans, dan
-baris kodenya berada di dalam blok generated `initComponents()`. Alhasil form tetap bisa
-dipakai dengan keyboard (Alt + P/N/R/J/E/H/L memindahkan fokus, Alt + M/D/U memilih jenis
-anggota, Alt + T mencentang persetujuan, Alt + B menekan Batal) tanpa kode tambahan di
-konstruktor.
+Semua properti aksesibilitas tersimpan di file `.form` dan `initComponents()`, jadi form
+sudah bisa dipakai dengan keyboard tanpa kode tambahan.
 
 ## Praktikum 4 — Validasi melalui Event Handler
 
-| Komponen | Menu Events | Isi event handler |
+| Komponen | Event | Isi handler |
 |---|---|---|
-| npmField | Key: keyTyped | membatalkan karakter bukan angka dan digit ke-11 dengan `evt.consume()` |
+| npmField | Key: keyTyped | menolak karakter bukan angka dan digit ke-11 dengan `evt.consume()` |
 | npmField, namaField, emailField, hpField | Focus: focusLost | memeriksa isian yang sudah diisi |
 | prodiCombo | Item: itemStateChanged | memeriksa pilihan saat `ItemEvent.SELECTED` |
 | setujuCheck | Item: itemStateChanged | mengaktifkan daftarButton |
 | batalButton, daftarButton | Action: actionPerformed | memanggil `batal()` atau `daftar()` |
 
-### Jawaban Eksperimen Praktikum 4
+### Jawaban Eksperimen
 
-1. **Ketik huruf pada isian NPM.** Huruf tidak masuk ke isian sama sekali; yang tercetak
-   hanya angka. Penyebabnya baris
+1. **Huruf pada NPM.** Huruf tidak masuk karena `evt.consume()` di `npmFieldKeyTyped`;
+   isian juga berhenti di 10 digit.
+2. **Email `siti@` lalu Tab.** Pesan muncul saat Tab ditekan karena `emailFieldFocusLost`
+   memanggil `periksaEmail()`.
+3. **Nama dikosongkan lalu Tab.** Tidak ada pesan karena focusLost hanya memeriksa isian
+   tidak kosong. Isian kosong baru diperiksa saat Daftar diklik.
+4. **Daftar dengan form kosong.** Lima isian bergaris merah, status "5 isian perlu
+   diperbaiki", dan fokus pindah ke npmField.
+5. **Alt+N.** Fokus pindah ke namaField melalui `displayedMnemonic` dan `labelFor`.
+6. **Batal lalu No.** Data tetap ada karena `batal()` langsung `return` bila jawabannya
+   bukan `YES_OPTION`.
 
-   ```java
-   if (!Character.isDigit(evt.getKeyChar()) || penuh) {
-       evt.consume(); // karakter tidak dimasukkan ke isian
-   }
-   ```
-
-   pada `npmFieldKeyTyped`. `evt.consume()` menandai event sudah ditangani sehingga
-   karakter tidak diteruskan ke isian. Hasil uji: mengetik `A`, `b`, `2` menyisakan
-   isi `"2"`, dan saat isian sudah 10 digit ketikan berikutnya diabaikan (`"2410010123"`
-   tetap 10 digit).
-
-2. **Isi email dengan `siti@`, lalu tekan Tab.** Pesan kesalahan muncul **saat Tab
-   ditekan**, bukan saat mengetik. Tab membuat emailField kehilangan fokus, sehingga
-   `emailFieldFocusLost` berjalan dan memanggil `periksaEmail()`. Hasil uji:
-   `emailPesanLabel` berisi "Format email belum benar, contoh: nama@contoh.com".
-
-3. **Klik isian Nama tanpa mengetik, lalu tekan Tab.** Tidak ada pesan kesalahan, karena
-   `namaFieldFocusLost` lebih dahulu memeriksa `if (!namaField.getText().isBlank())`.
-   Isian kosong sengaja tidak ditandai saat pengguna hanya melewatinya; isian kosong baru
-   diperiksa ketika tombol Daftar diklik. Hasil uji: `namaPesanLabel` tetap berisi spasi.
-
-4. **Centang persetujuan, lalu klik Daftar dengan form kosong.** Kelima isian bertanda
-   merah, `statusLabel` berbunyi "5 isian perlu diperbaiki", dan fokus berpindah ke
-   **npmField** karena `daftar()` memanggil `salah.get(0).requestFocusInWindow()` dan
-   NPM adalah isian pertama yang diperiksa.
-
-5. **Tekan Alt bersama huruf N.** Fokus berpindah ke **namaField**. Yang mengaturnya
-   adalah properti `displayedMnemonic` bernilai N pada `namaLabel` yang dipasangkan
-   dengan `labelFor` = namaField: saat mnemonic diaktifkan, label meminta fokus untuk
-   komponen `labelFor`-nya.
-
-6. **Isi beberapa isian, klik Batal, lalu pilih No.** Data tetap ada. `batal()` memanggil
-   `JOptionPane.showConfirmDialog` lebih dahulu dan langsung `return` bila jawabannya
-   bukan `YES_OPTION`, sehingga `kosongkan()` tidak dijalankan. Hasil uji: setelah
-   menekan No, NPM masih "2410010123" dan Nama masih "Siti Rahmah".
-
-Tangkapan layar: `screenshot/form-anggota-awal.png` (form saat pertama dibuka) dan
-`screenshot/form-anggota-pesan-kesalahan.png` (setelah Daftar diklik dengan data salah).
+Tangkapan layar: `screenshot/form-anggota-awal.png` dan
+`screenshot/form-anggota-pesan-kesalahan.png`.
 
 ## Praktikum 5 — Menyimpan ke GitHub
 
@@ -184,30 +134,29 @@ git push
 
 ## Latihan Mandiri — FormAnggotaPerpustakaan
 
-Form dari Pertemuan 5 dikembangkan tanpa mengubah susunan dasarnya (headerPanel,
-formPanel GridBagLayout, tombolPanel) dengan tambahan baris label pesan di bawah setiap
-isian dan statusLabel di kiri bawah.
+Form Pertemuan 5 ditambah label pesan di bawah tiap isian, `digitLabel`, dan `statusLabel`
+di kiri bawah. Susunan dasarnya tetap.
 
 | No | Ketentuan | Bukti |
 |---|---|---|
-| 1 | Aturan NPM, nama, email, nomor HP di kelas Validator | `FormAnggotaPerpustakaan` hanya memanggil `Validator.npm/nama/email/nomorHp` lewat `periksaNpm()`, `periksaNama()`, `periksaEmail()`, `periksaHp()` |
-| 2 | Nama tidak boleh berisi angka, diuji di UjiValidator | `Validator.nama` menambah pola `.*\\d.*`; UjiValidator memuat baris `Nama berisi angka` |
-| 3 | Isian salah bergaris merah dan berpesan di bawahnya | `tandai()` memasang `JComponent.outline = "error"` dan mengisi label pesan; lihat `screenshot/form-anggota-perpustakaan-kesalahan.png` |
-| 4 | NPM dan nomor HP hanya menerima angka lewat keyTyped | `npmFieldKeyTyped` (maks. 10 digit) dan `hpFieldKeyTyped` (maks. 13 digit) |
-| 5 | Ringkasan jumlah kesalahan dan fokus ke kesalahan pertama | `statusLabel.setText(salah.size() + " isian perlu diperbaiki")` lalu `salah.get(0).requestFocusInWindow()` |
-| 6 | Konfirmasi sebelum mengosongkan form berisi data | `batal()` memeriksa `adaIsian()` lalu menampilkan `JOptionPane.showConfirmDialog` |
-| 7 | labelFor, displayedMnemonic, mnemonic, toolTipText | lihat tabel aksesibilitas di atas; toolTipText juga pada hpField |
+| 1 | Aturan NPM, nama, email, nomor HP di kelas Validator | form hanya memanggil `Validator.npm/nama/email/nomorHp` |
+| 2 | Nama tidak boleh berisi angka, diuji di UjiValidator | pola `.*\\d.*` dan baris `Nama berisi angka` |
+| 3 | Isian salah bergaris merah dan berpesan | `tandai()` memasang `JComponent.outline = "error"` dan mengisi label |
+| 4 | NPM dan Nomor HP hanya menerima angka | `npmFieldKeyTyped` (maks. 10) dan `hpFieldKeyTyped` (maks. 13) |
+| 5 | Ringkasan kesalahan dan fokus ke kesalahan pertama | `statusLabel` + `salah.get(0).requestFocusInWindow()` |
+| 6 | Konfirmasi sebelum mengosongkan form | `batal()` memeriksa `adaIsian()` lalu menampilkan konfirmasi |
+| 7 | labelFor, displayedMnemonic, mnemonic, toolTipText | lihat tabel aksesibilitas di atas |
 
-Hasil uji: nama `"Reza 2"` ditolak dengan pesan "Nama tidak boleh berisi angka";
-ketikan `x` pada NPM dan `-` pada Nomor HP ditolak; form kosong menghasilkan
-"5 isian perlu diperbaiki".
+Hasil uji: nama `"Reza 2"` ditolak, ketikan `x` pada NPM dan `-` pada Nomor HP ditolak,
+dan form kosong menghasilkan "5 isian perlu diperbaiki".
 
 ## Catatan Pengumpulan
 
-- File `.java` dan `.form` untuk kedua form sudah ada di dalam proyek, jadi keduanya
-  dapat dibuka pada tab Design NetBeans.
-- Tangkapan layar jendela Navigator (memperlihatkan label pesan) perlu diambil langsung
-  di NetBeans pada komputer sendiri: buka `FormAnggota.java` di tab Design, buka jendela
-  **Window → Navigator**, lalu tangkap layarnya.
-- Lembar peer review diisi oleh teman (`Lembar-Peer-Review-Heuristik.md`), lalu temuannya
-  dicatat pada `Tabel-Temuan-Peer-Review.md` beserta commit perbaikannya.
+- File `.java` dan `.form` kedua form sudah ada, jadi bisa dibuka di tab Design NetBeans.
+- Bukti di `screenshot/`: form awal, form dengan pesan kesalahan, Navigator
+  (`navigator-form-anggota-perpustakaan.png`), dan keluaran `UjiValidator`
+  (`output-uji-validator.txt`).
+- Lembar peer review diisi teman pada `Lembar-Peer-Review-Heuristik.pdf`; temuannya
+  direkap di `Tabel-Temuan-Peer-Review.md` (semua skor 0–2, tidak ada perbaikan wajib).
+- Tambahan hanya `digitLabel`, label pesan, `keteranganLabel`, dan `toolTipText`; susunan
+  dasar, garis merah, ringkasan status, dan fokus ke kesalahan pertama tetap sama.

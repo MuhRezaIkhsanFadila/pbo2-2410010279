@@ -117,7 +117,8 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
         judulLabel.setText("Anggota Perpustakaan");
         headerPanel.add(judulLabel);
 
-        keteranganLabel.setText("Daftar sebagai anggota Perpustakaan Mini. Lengkapi data berikut.");
+        keteranganLabel.setText("Daftar sebagai anggota Perpustakaan Mini. Lengkapi data berikut."
+                + " Arahkan penunjuk ke isian untuk melihat aturannya.");
         headerPanel.add(keteranganLabel);
 
         getContentPane().add(headerPanel, java.awt.BorderLayout.NORTH);
@@ -198,6 +199,7 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
         formPanel.add(namaLabel, gridBagConstraints);
 
         namaField.setColumns(20);
+        namaField.setToolTipText("Minimal 3 huruf, tidak boleh berisi angka");
         namaField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 namaFieldFocusLost(evt);
@@ -231,6 +233,7 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
         formPanel.add(prodiLabel, gridBagConstraints);
 
         prodiCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pilih program studi", "Teknik Informatika", "Sistem Informasi", "Manajemen Informatika" }));
+        prodiCombo.setToolTipText("Pilih salah satu program studi");
         prodiCombo.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 prodiComboItemStateChanged(evt);
@@ -254,6 +257,7 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
         formPanel.add(prodiPesanLabel, gridBagConstraints);
 
         jenisAnggotaLabel.setDisplayedMnemonic('J');
+        jenisAnggotaLabel.setLabelFor(mahasiswaRadio);
         jenisAnggotaLabel.setText("Jenis anggota");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -308,6 +312,7 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
         formPanel.add(emailLabel, gridBagConstraints);
 
         emailField.setColumns(20);
+        emailField.setToolTipText("Contoh: nama@contoh.com");
         emailField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 emailFieldFocusLost(evt);
@@ -381,6 +386,7 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
 
         alamatTextArea.setColumns(20);
         alamatTextArea.setRows(3);
+        alamatTextArea.setToolTipText("Opsional, boleh dikosongkan");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 14;
